@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Dashboard</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body class="bg-light">
+
+<div class="container mt-5">
+
+<h2 class="mb-4">
+
+📋 Task Management Dashboard
+
+</h2>
+
+<a href="/add" class="btn btn-success mb-4">
+
++ Add Task
+
+</a>
+
+{% for task in tasks %}
+
+<div class="card shadow-sm mb-3">
+
+<div class="card-body">
+
+<h4>{{ task.title }}</h4>
+
+<p>{{ task.description }}</p>
+
+<span class="badge bg-warning">
+
+{{ task.status }}
+
+</span>
+
+<div class="mt-3">
+
+<a
+href="/edit/{{ task.id }}"
+class="btn btn-primary btn-sm">
+
+Edit
+
+</a>
+
+<a
+href="/delete/{{ task.id }}"
+class="btn btn-danger btn-sm">
+
+Delete
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</body>
+</html>
